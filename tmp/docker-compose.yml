@@ -1,0 +1,19 @@
+services:
+  tmp:
+    hostname: tmp
+    build:
+      context: ./container
+      dockerfile: Dockerfile
+      args:
+        - UID=${UID- }
+        - GID=${GID- }
+    volumes:
+      - ./work:/home/user
+    stdin_open: true
+    tty: true
+    networks:
+      network: {}
+
+networks:
+  network:
+    driver: bridge
